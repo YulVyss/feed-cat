@@ -1,0 +1,226 @@
+@import "fonts";
+@import "null";
+
+// ====================================================================
+body {
+  font-family: "Trebuchet MS";
+}
+
+.container {
+  width: 100vw;
+  min-width: 320px;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: url("../img/Pattern.png") top / cover no-repeat;
+
+  @media (min-width: 1900px) {
+    background: url("../img/Pattern@2x.png") top / cover no-repeat;
+  }
+}
+// ====================================================================
+
+.block {
+  &__title {
+    margin-bottom: 24px;
+    font-family: "Exo2.0";
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0px 1px 1px #000000;
+  }
+
+  &__cards {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    @media (max-width: 1200px) {
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 767.98px) {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+    }
+  }
+}
+
+.card {
+  width: 320px;
+
+  margin: 0 40px 40px;
+  @media (max-width: 767.98px) {
+    margin: 0 0 40px;
+  }
+  &__text-wrapper {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 21px 51px;
+    overflow: hidden;
+    z-index: 2;
+  }
+
+  &__content {
+    position: relative;
+    min-height: 480px;
+    width: 100%;
+    background: #fff;
+    font-family: "Trebuchet MS";
+  }
+
+  &__tagline {
+    margin-bottom: 5px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: $gray;
+  }
+
+  &__title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 56px;
+    color: $black;
+  }
+
+  &__taste {
+    margin-bottom: 15px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: $black;
+  }
+
+  &__description {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    color: $gray;
+  }
+
+  &__img {
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+    object-fit: contain;
+    z-index: 0;
+  }
+
+  &__weight {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    padding-top: 10px;
+    border-radius: 50%;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  &__weight-number {
+    font-weight: 400;
+    font-size: 42px;
+  }
+
+  &__weight-units {
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 22px;
+  }
+
+  &__text {
+    margin-top: 14px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15px;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  &__button {
+    background: transparent;
+    font-family: inherit;
+    color: $blue;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15px;
+    border-bottom: 1px dashed $blue;
+  }
+}
+
+.card_notselected {
+  .card__content {
+    background: url("../img/cardback_b.svg") center / contain no-repeat;
+    cursor: pointer;
+  }
+  .card__weight {
+    background-color: $blue;
+  }
+}
+.card_selected {
+  .card__content {
+    background: url("../img/cardback_p.svg") center / contain no-repeat;
+    cursor: pointer;
+  }
+  .card__weight {
+    background-color: $pink;
+  }
+}
+
+.card_selected,
+.card_notselected {
+  &:hover {
+    .card__content {
+      -webkit-filter: contrast(1.2);
+      filter: contrast(1.2);
+    }
+  }
+}
+
+.card_disabled {
+  .card__content {
+    background: url("../img/cardback_b.svg") center / contain no-repeat;
+    -webkit-filter: grayscale(1) !important;
+    filter: grayscale(1) !important;
+  }
+  .card__weight {
+    background-color: $blue;
+  }
+  .card__text {
+    color: #ffff66;
+  }
+}
